@@ -1,0 +1,10 @@
+<div *ngIf="error" class="alert alert-danger animated fadeIn">
+    <h3>Ah ocurrido un error</h3>
+    <p>{{this.errorTexto}}</p>
+</div>
+
+
+<div class="animated fadeIn">
+    <app-loading *ngIf="loading"></app-loading>
+    <app-card [items] ='newReleases' [isHome]="true" class="animated fadeIn"></app-card>
+</div>

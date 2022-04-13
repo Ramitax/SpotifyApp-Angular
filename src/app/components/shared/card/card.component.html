@@ -1,0 +1,18 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let item of items">
+    <div class="card h-100 puntero" (click)="viewArtist( item )">
+      <img [src]="item.images | noimage" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <h6 class="card-subtitle mb-1" *ngIf="isHome">{{item.artists[0].name}}</h6>
+        <p class="card-text" *ngIf="isHome">
+          <span *ngFor="let artist of item.artists" class="badge rounded-pill bg-success">{{artist.name}}</span>
+        </p>
+      </div>
+      <div class="card-footer">
+          <small class="text-muted" *ngIf="isHome">Lanzamiento: {{item.release_date}}</small>
+          <small class="text-muted" *ngIf="!isHome">Seguidores: {{item.followers.total | number}}</small>
+      </div>
+    </div>
+  </div>
+</div>
